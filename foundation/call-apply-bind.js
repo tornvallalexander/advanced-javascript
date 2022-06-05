@@ -60,3 +60,15 @@ function _getMaxNumber(arr) {
 console.log(getMaxNumber(array))
 console.log(_getMaxNumber(array))
 
+
+const character = {
+  name: "Simon",
+  getCharacter() {
+    return this.name
+  }
+}
+const currCharacter = character.getCharacter
+console.log(currCharacter.apply(character))
+const callWithCorrectThis = currCharacter.bind(character)
+console.log(callWithCorrectThis())
+
