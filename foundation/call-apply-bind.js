@@ -29,3 +29,34 @@ console.log(archer)
 const healArcher = wizard.heal.bind(archer, 20, 10)  // bind() returns a function with the `this` keyword set
 healArcher()
 console.log(archer)
+
+/**
+ * func
+ * currentMaxNum = 0
+ * for loop -->
+ * if currentNum > currentMaxNum
+ * ---> currentMaxNum = currentNum
+ * return currentMaxNUm
+ */
+
+const array = [1,2,3]
+// unoptimized solution
+function getMaxNumber(arr) {
+  let currentMaxNum = 0
+  arr.forEach(currentNum => {
+    if (currentNum > currentMaxNum) {
+      currentMaxNum = currentNum
+    }
+  })
+
+  return currentMaxNum
+}
+
+function _getMaxNumber(arr) {
+  console.log(Math.max(...arr))
+  return Math.max.apply(null, arr)
+}
+
+console.log(getMaxNumber(array))
+console.log(_getMaxNumber(array))
+
