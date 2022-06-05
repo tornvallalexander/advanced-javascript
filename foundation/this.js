@@ -3,6 +3,8 @@
 /**
  * 1: gives methods access to their object
  * 2: execute same code for multiple objects
+ * the `this` reference depends on **where** it is called. --> it is dynamically scoped
+ * arrow functions will bind the `this` keyword (it is lexically bound)
  */
 
 const obj = {
