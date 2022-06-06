@@ -16,3 +16,10 @@ console.log(obj)
 console.log(clone)
 console.log(clone2)
 console.log(deepClone)
+
+// keep in mind, obj are only a reference in memory
+let user1 = {name: "test"}
+let user2 = {name: "test"}
+console.log(user1 === user2)  // therefore this returns false
+console.log(JSON.stringify(obj1) === JSON.stringify(obj2))  // works for simple values
+// https://stackoverflow.com/questions/1068834/object-comparison-in-javascript
