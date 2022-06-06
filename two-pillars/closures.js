@@ -68,4 +68,4 @@ const makeNuclearButton = () => {
 
 const ohno = makeNuclearButton()
 ohno.totalPeaceTime()
-ohno.launch()  // due to encapsulation one does not have access to launch (it is encapsulated into the other function
+ohno.launch()  // due to encapsulation one does not have access to launch (it is encapsulated into the other function)
