@@ -31,3 +31,24 @@ function callMeMaybe() {
 }
 
 callMeMaybe()
+
+// Closures are good because they are
+// 1. Memory efficient
+function heavyDuty(index) {
+  const bigArray = new Array(7000).fill("👍")
+  return bigArray[index]
+}
+
+// calling this a lot of times will be very slow and inefficient
+heavyDuty(692)
+
+// solution (without polluting global scope)
+function heavyDuty2() {
+  const bigArray = new Array(7000).fill("👍")
+  return (index) => bigArray[index]
+}
+
+const getItemFromArray = heavyDuty2()
+getItemFromArray(692)
+
+// 2. Encapsulation
