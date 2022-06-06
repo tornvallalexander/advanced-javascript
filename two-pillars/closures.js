@@ -68,4 +68,29 @@ const makeNuclearButton = () => {
 
 const ohno = makeNuclearButton()
 ohno.totalPeaceTime()
-ohno.launch()  // due to encapsulation one does not have access to launch (it is encapsulated into the other function)
+// ohno.launch()  // due to encapsulation one does not have access to launch (it is encapsulated into the other function)
+
+// Exercise
+// only allow to be used once, no abuse
+let view;
+function once(callbackFn) {
+  let callbackFnWasCalled = false
+  return (arg) => {
+    if (!callbackFnWasCalled) {
+      callbackFn(arg)
+    }
+    callbackFnWasCalled = true
+  }
+}
+
+function setView(image) {
+  view = image
+  console.log("view has been set!")
+}
+
+const initialize = once(setView)
+// these calls will only run `setView` once
+initialize("🌇")
+initialize("🌇")
+initialize("🌇")
+
