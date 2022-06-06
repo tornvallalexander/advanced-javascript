@@ -65,3 +65,17 @@ function letPerson(person, fn) {
 
 console.log(letPerson({level: "user", name: "Giorgio"}, sing))
 console.log(letPerson({level: "admin", name: "Alex"}, sing))
+
+// Exercise
+const multiplyBy = (by) => {
+  return (num) => {
+    return num * by
+  }
+}
+const cleanerMultiplyBy = (by) => (num) => num * by
+
+const multiplyByTen = cleanerMultiplyBy(10)
+const multiplyByTwentySeven = multiplyBy(27)
+console.log(multiplyByTen(294))
+console.log(multiplyByTwentySeven(294))
+console.log(cleanerMultiplyBy(39)(59))
