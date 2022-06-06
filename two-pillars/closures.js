@@ -52,3 +52,20 @@ const getItemFromArray = heavyDuty2()
 getItemFromArray(692)
 
 // 2. Encapsulation
+const makeNuclearButton = () => {
+  let timeWithoutDestruction = 0
+  const passTime = () => timeWithoutDestruction++
+  const totalPeaceTime = () => timeWithoutDestruction
+  const launch = () => {
+    timeWithoutDestruction = -1
+    return "BOOM!"
+  }
+  setInterval(passTime, 1000)
+  return {
+    totalPeaceTime,
+  }
+}
+
+const ohno = makeNuclearButton()
+ohno.totalPeaceTime()
+ohno.launch()  // due to encapsulation one does not have access to launch (it is encapsulated into the other function
