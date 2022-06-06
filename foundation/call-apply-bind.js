@@ -62,7 +62,7 @@ console.log(_getMaxNumber(array))
 
 
 const character = {
-  name: "Simon",
+  name: "Alexander",
   getCharacter() {
     return this.name
   }
