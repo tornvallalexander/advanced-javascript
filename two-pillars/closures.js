@@ -18,3 +18,16 @@ console.log(a()()())
 
 const boo = (string) => (name1) => (name2) => `${string} ${name1} ${name2}`
 console.log(boo("hello")("there")("!"))
+
+// Exercise
+function callMeMaybe() {
+  // this callback function in setTimeout still has access to the variable that is later defined in the function
+  // this is due to closure. The returned function should always have access to all the variables in the parent
+  // function
+  setTimeout(() => {
+    console.log(callMe)
+  }, 4000)
+  const callMe = "Hi! I am now here!"  // note that this is nothing to do with hoisting --> it is a const, not a var
+}
+
+callMeMaybe()
