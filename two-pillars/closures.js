@@ -94,3 +94,19 @@ initialize("🌇")
 initialize("🌇")
 initialize("🌇")
 
+
+const arr = [1,2,3,4]
+for (let i = 0; i < arr.length; i++) {  // rename var to let
+  setTimeout(() => {
+    console.log("I am at index " + arr[i])
+  }, 1000)
+}
+
+// another way to do it
+for (var i = 0; i < arr.length; i++) {
+  (function(closureI) {
+    setTimeout(() => {
+      console.log("I am at index " + arr[closureI])
+    }, 1000)
+  })(i)
+}
