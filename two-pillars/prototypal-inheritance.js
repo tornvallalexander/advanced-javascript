@@ -74,3 +74,20 @@ console.log(socrates.mortal)  // we go up the prototype chain
 // the below are the same, JS creates the prototypes for both, moves up the chain
 "string".prototype  // undefined
 String.prototype
+
+// Exercises
+/**
+ * Date object => to have new method .lastYear() which show you last year "YYYY" format
+ *
+ */
+Date.prototype.lastYear = function() {
+  console.log(this.getFullYear() - 1)
+  return this.getFullYear() - 1
+}
+
+// how the fuck would you do that with arrow function?, no access to this keyword
+Date.prototype.lastYear2 = () => {
+  // ???
+}
+
+new Date("1900-10-10").lastYear()
