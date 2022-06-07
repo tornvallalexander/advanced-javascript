@@ -104,6 +104,7 @@ Array.prototype.map = function() {
   return arr
 }
 
+// this does not work, doesn't modify the item --> ANSWER: best not to modify array
 Array.prototype.map2 = function() {
   this.forEach(item => {
     item = item + "🚀"
