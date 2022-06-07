@@ -17,3 +17,11 @@ let lizard = {
     return 1
   }
 }
+
+lizard.__proto__ = dragon
+for (let prop in lizard) {
+  console.log(prop)
+  if (lizard.hasOwnProperty(prop)) {
+    console.log("own: ", prop)
+  }
+}
