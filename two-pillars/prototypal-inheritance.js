@@ -90,4 +90,22 @@ Date.prototype.lastYear2 = () => {
   // ???
 }
 
-new Date("1900-10-10").lastYear()
+new Date().lastYear()
+
+Array.prototype.map = function() {
+  const arr = []
+  this.forEach(item => {
+    arr.push(item + "🚀")
+  })
+  return arr
+}
+
+Array.prototype.map2 = function() {
+  this.forEach(item => {
+    item = item + "🚀"
+  })
+  return this
+}
+
+console.log([1,2,3].map())
+console.log([1,2,3].map2())
