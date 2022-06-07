@@ -62,3 +62,11 @@ arr.__proto__.hasOwnProperty("map")  // true
 Array.prototype
 arr.__proto__
 
+// create our own prototype
+let human = {
+  mortal: true
+}
+let socrates = Object.create(human)  // inherit
+socrates.age = 45
+console.log(socrates)
+console.log(socrates.mortal)  // we go up the prototype chain
