@@ -128,6 +128,13 @@ Function.prototype.bind2 = function(thisArg, ...argArray) {
   return function() {return this.call(thisArg, ...argArray)}
 }
 
+Function.prototype.bindSolution = function(whoIsCallingMe){
+  const self = this;  // --> binds `this` to before function is called, lexically ??
+  return function(){
+    return self.apply(whoIsCallingMe, arguments);
+  };
+}
+
 let objProp = {
   hello: "testing123",
   test() {
@@ -141,6 +148,8 @@ let objNoProp = {
 
 const fn = objProp.test.bind(objNoProp)
 const fn2 = objProp.test.bind2(objNoProp)
+const fnSolution = objProp.test.bindSolution(objNoProp)
 // look into why fn() works but not fn2() --> function vs arrow function
 fn()
-fn2()
+// fn2()
+fnSolution()
