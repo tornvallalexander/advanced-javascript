@@ -86,6 +86,10 @@ Date.prototype.lastYear = function() {
 }
 
 // how the fuck would you do that with arrow function?, no access to this keyword
+/**
+ * turns out: with arrow function, `this` is lexically scope, aka this is referring to the actual Date object that called
+ * one of the rare cases where we want `this` to be determined at call time
+ */
 Date.prototype.lastYear2 = () => {
   // ???
 }
