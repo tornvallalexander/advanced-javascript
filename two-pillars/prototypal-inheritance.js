@@ -41,3 +41,24 @@ for (let prop in lizard) {
  */
 const testObj = {}
 console.log(testObj.__proto__.__proto__)  // returns null because this is as far up the chain that we can go
+
+/**
+ * Let's take a look at functions
+ */
+function multiplyByFive(num) {
+  return num * 5
+}
+
+// these two below are the same
+// NOTE: __proto__ is simply a reference to `prototype` up the chain
+console.log(multiplyByFive.__proto__)
+console.log(Function.prototype)
+
+const arr = []
+arr.hasOwnProperty("map")  // false
+arr.__proto__.hasOwnProperty("map")  // true
+
+// the below are the same --> this is how we are able to be efficient with our memory --> write them once, use them everywhere!
+Array.prototype
+arr.__proto__
+
