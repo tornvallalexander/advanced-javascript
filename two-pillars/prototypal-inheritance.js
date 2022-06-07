@@ -114,3 +114,33 @@ Array.prototype.map2 = function() {
 
 console.log([1,2,3].map())
 console.log([1,2,3].map2())
+
+// exercise: create bind method using call/apply
+function test() {
+  return "test"
+}
+
+Function.prototype.bind = function(thisArg, ...argArray) {
+  return () => this.call(thisArg, ...argArray)
+}
+
+Function.prototype.bind2 = function(thisArg, ...argArray) {
+  return function() {return this.call(thisArg, ...argArray)}
+}
+
+let objProp = {
+  hello: "testing123",
+  test() {
+    console.log(this.hello)
+  }
+}
+
+let objNoProp = {
+  hello: "hello!",
+}
+
+const fn = objProp.test.bind(objNoProp)
+const fn2 = objProp.test.bind2(objNoProp)
+// look into why fn() works but not fn2() --> function vs arrow function
+fn()
+fn2()
