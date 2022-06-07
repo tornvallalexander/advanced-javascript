@@ -70,3 +70,7 @@ let socrates = Object.create(human)  // inherit
 socrates.age = 45
 console.log(socrates)
 console.log(socrates.mortal)  // we go up the prototype chain
+
+// the below are the same, JS creates the prototypes for both, moves up the chain
+"string".prototype  // undefined
+String.prototype
