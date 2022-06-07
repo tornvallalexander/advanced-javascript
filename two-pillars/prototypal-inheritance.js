@@ -18,6 +18,9 @@ let lizard = {
   }
 }
 
+// also works:
+// const singLizard = dragon.sing.bind(lizard)
+
 lizard.__proto__ = dragon
 for (let prop in lizard) {
   console.log(prop)
