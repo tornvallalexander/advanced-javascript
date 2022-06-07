@@ -21,7 +21,13 @@ let lizard = {
 // also works:
 // const singLizard = dragon.sing.bind(lizard)
 
+// creating a chain --> lizard all the way up to dragon
 lizard.__proto__ = dragon
+
+// looks up in the prototype chain
+// lizard.sing()
+
+dragon.isPrototypeOf(lizard)  // is dragon a prototype of lizard --> does lizard inherit from dragon?
 for (let prop in lizard) {
   console.log(prop)
   if (lizard.hasOwnProperty(prop)) {
