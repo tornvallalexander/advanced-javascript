@@ -1,13 +1,13 @@
 
-const elf = {
+const elfObj = {
   name: "Orwell",
   weapon: "bow",
   attack() {
-    return "attack with " + elf.weapon
+    return "attack with " + elfObj.weapon
   }
 }
 
-elf.attack()
+elfObj.attack()
 
 // factory functions
 const store = {
@@ -24,4 +24,21 @@ function createElf(name, weapon) {
 }
 
 const peter = createElf("Peter", "stones")
-console.log(peter.attack())
+// console.log(peter.attack())
+
+// constructor functions
+// we are constructing an elf
+function Elf(name, weapon) {
+  this.name = name
+  this.weapon = weapon
+}
+
+// this is a case where we would not want to use arrow functions since this would point lexically appoint the `this`
+// keyword to the window object. If we use a function, `this` instead refers to where the function was called from
+Elf.prototype.attack = function() {
+  return `attack with ${this.weapon}`
+}
+
+// `new` keyword assigns this to the created obj
+const sam = new Elf("Sam", "fire")
+console.log(sam.attack())
