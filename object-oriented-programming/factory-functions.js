@@ -39,6 +39,15 @@ Elf.prototype.attack = function() {
   return `attack with ${this.weapon}`
 }
 
+Elf.prototype.build = function() {
+  const self = this;
+  function building() {
+    return self.name + " builds a house"  // common gotcha is creating new functions where `this` loses initial reference
+  }
+  return building()
+}
+
 // `new` keyword assigns this to the created obj
 const sam = new Elf("Sam", "fire")
 console.log(sam.attack())
+console.log(sam.build())
