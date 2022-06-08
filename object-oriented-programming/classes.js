@@ -1,6 +1,7 @@
 // ES6 classes
 
 // class is actually just syntactic sugar in JavaScript, it still uses the new keyword under the hood
+// can be created with Object.create() --> pure prototypal inheritance
 class Elf {
   // runs everytime we instantiate
   constructor(name, weapon) {
