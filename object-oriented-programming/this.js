@@ -8,7 +8,7 @@ const person1 = new Person("Xavier", 55)
 console.log(person1)
 
 // implicit binding
-const person = {
+const person2 = {
   name: "Karen",
   age: 40,
   hi() {
