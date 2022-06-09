@@ -2,7 +2,7 @@
 
 // class is actually just syntactic sugar in JavaScript, it still uses the new keyword under the hood
 // can be created with Object.create() --> pure prototypal inheritance
-class Elf {
+class Character {
   // runs everytime we instantiate
   constructor(name, weapon) {
     this.name = name
@@ -15,13 +15,8 @@ class Elf {
   }
 }
 // way cleaner than what we did before... one location for everything
-
-// peter is an instance --> whenever we call a class we create an instance
-const peter = new Elf("Peter", "stones")
-console.log(peter.attack())
-
 // extending classes
-class Ogre extends Elf {
+class Ogre extends Character {
   constructor(name, weapon, color) {
     super(name, weapon)
     this.color = color
@@ -30,6 +25,20 @@ class Ogre extends Elf {
     return `Hello, I am a ${this.color} Ogre!`
   }
 }
+
+class Elf extends Character {
+  constructor(name, weapon, hair) {
+    super(name, weapon)
+    this.hair = hair
+  }
+  greeting() {
+    return `Hello, I am a ${this.hair} Elf!`
+  }
+}
+
+// peter is an instance --> whenever we call a class we create an instance
+const peter = new Elf("Peter", "stones", "blonde")
+console.log(peter.greeting())
 
 const brian = new Ogre("Brian", "tree", "green")
 console.log(brian.greeting())
