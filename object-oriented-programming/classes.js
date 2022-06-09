@@ -34,6 +34,10 @@ class Elf extends Character {
   greeting() {
     return `Hello, I am a ${this.hair} Elf!`
   }
+  // we can now use private class methods in JavaScript with the `#` prefix
+  static #private() {
+    return `This is a private method`
+  }
 }
 
 // peter is an instance --> whenever we call a class we create an instance
