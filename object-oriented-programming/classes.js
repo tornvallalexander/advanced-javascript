@@ -34,6 +34,9 @@ class Elf extends Character {
   greeting() {
     return `Hello, I am a ${this.hair} Elf!`
   }
+  _supposedToBePrivate() {
+    return `the underscore is meant to signal that a class is private in JS --> before we had support for private in JS`
+  }
   // we can now use private class methods in JavaScript with the `#` prefix
   static #private() {
     return `This is a private method`
