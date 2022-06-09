@@ -19,3 +19,17 @@ class Elf {
 // peter is an instance --> whenever we call a class we create an instance
 const peter = new Elf("Peter", "stones")
 console.log(peter.attack())
+
+// extending classes
+class Ogre extends Elf {
+  constructor(name, weapon, color) {
+    super(name, weapon)
+    this.color = color
+  }
+  greeting() {
+    return `Hello, I am a ${this.color} Ogre!`
+  }
+}
+
+const brian = new Ogre("Brian", "tree", "green")
+console.log(brian.greeting())
