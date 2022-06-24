@@ -42,3 +42,25 @@ function first() {
   second();
 }
 first();
+
+// scope chain vs call stack
+const a = "John";
+
+function first2() {
+  const b = "Jane";
+
+  function second() {
+    const c = "Bob";
+    console.log(a, b, c);
+  }
+  second();
+}
+
+function third() {
+  const d = "Bob";
+  // console.log(a, b, c, d);
+  // ReferenceError: b, c is not defined
+}
+
+// summary:
+// scoping asks: "where do variables live?"
