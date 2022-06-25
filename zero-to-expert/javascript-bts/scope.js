@@ -29,7 +29,7 @@ function first() {
 
   if (age >= 30) {
     const decade = 3;
-    var millennial = true
+    var millennial = true  // var variables are function scoped
   }
 
   function second() {
@@ -64,3 +64,27 @@ function third() {
 
 // summary:
 // scoping asks: "where do variables live?"
+
+// exercise
+
+function calcAge(birthYear) {
+  const age = 2030 - birthYear;
+
+  function printAge() {
+    // further variable lookup
+    const output = `${firstName}, you are ${age} born in ${birthYear}`;
+    console.log(output);
+  }
+  printAge();
+
+  // IIFE - Immediately Invoked Function Expression
+  (function printAgeInTenYears(age) {
+    const ageInTenYears = age + 10;
+    console.log(`In ten years, you will be ${ageInTenYears}`);
+  }(age))
+
+  return age;
+}
+
+const firstName = "John";
+calcAge(2003)
