@@ -27,3 +27,21 @@ DOM.get("pizza").innerHTML = "Pizza Hut";
 
 // also works the other way around
 DOM.set(document.getElementById("pizza"), "pizza");
+
+
+// working with maps
+const quiz = new Map([
+  ["question", "What is the best programming language"],
+  ["answer", [
+    [1, "JavaScript"],
+    [2, "Python"],
+    [3, "Java"],
+    ["correct", 1],
+  ]]
+]);
+
+// we can easily convert an object to a map
+// function to convert an object to a map
+const objectToMap = (obj) => {
+  return new Map(Object.entries(obj))
+}
