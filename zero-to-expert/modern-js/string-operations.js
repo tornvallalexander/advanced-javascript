@@ -32,3 +32,11 @@ function cleanString(str) {
 
 const test = "  Hello@alexAnder.io  \n."
 console.log(cleanString(test))
+
+// replace
+const announcement = "All passengers come to boarding door 23. Boarding door 23!"
+console.log(announcement.replaceAll("door", "gate"))
+
+// we can achieve same thing with regex
+// we put them in slashes and use `g` for global, aka all occurrences
+console.log(announcement.replace(/door/g, "gate"))
