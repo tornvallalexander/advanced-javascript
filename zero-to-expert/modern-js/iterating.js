@@ -20,6 +20,7 @@ const obj = {
   fri: "Friday",
   sat: "Saturday",
   sun: "Sunday",
+  sun2: "Sunday",
 }
 
 // important difference: arr.entries() does not need arg while obj.entries() does
@@ -37,3 +38,31 @@ for (const val of Object.values(obj)) {
 for (const [key, value] of Object.entries(obj)) {
   // console.log(key, value)
 }
+
+// JS Sets
+const meals = new Set([
+  "Pizza",
+  "Pasta",
+  "Salad",
+  "Pizza",
+  "Pie",
+  "Salad",
+]);
+
+console.log(meals);
+
+// strings are also iterable
+console.log(new Set("Alexander"))
+
+// set can take anything iterable?
+// like Object.values / Object.keys / Object.entries ?
+console.log(new Set(Object.values(obj)))
+console.log(new Set(Object.keys(obj)))
+console.log(new Set(Object.entries(obj))) // this is the same as Object.entries(obj)
+
+// Set methods
+// add() - adds an element to the set
+// delete() - removes an element from the set
+// has() - checks if an element is in the set
+// clear() - removes all elements from the set
+// size() - returns the number of elements in the set
