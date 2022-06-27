@@ -23,7 +23,7 @@ const obj = {
   sun2: "Sunday",
 }
 
-// important difference: arr.entries() does not need arg while obj.entries() does
+// important difference: arr.entries() does not need arg while Object.entries() does
 // Object.keys(obj) turns the objects keys into an array
 for (const key of Object.keys(obj)) {
   // console.log(key)

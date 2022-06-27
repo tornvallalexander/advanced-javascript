@@ -48,6 +48,8 @@ const objectToMap = (obj) => {
   return new Map(Object.entries(obj))
 }
 
+// exercise
+
 const gameEvents = new Map([
   [17, "Goal"],
   [21, "Assist"],

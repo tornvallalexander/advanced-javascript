@@ -13,7 +13,7 @@ if (true) {
   const test4 = 'test4';
 }
 
-// can't reference variables from outside the scope
+// can't reference variables from outside the scope (i.e. not global but enclosed)
 // this is due to lexical scoping
 // var variables are still accessible from anywhere in the code,
 // not limited to lexical scope or where they are called

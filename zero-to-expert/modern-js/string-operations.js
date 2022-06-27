@@ -64,6 +64,12 @@ const capitalizeAllWords = (str) => {
 // padStart() and padEnd() are used to add padding to the start and end of a string
 
 const message = "Go to gate 23!"
+// making it dynamic to length which technically turns it static ;)
+// strings with equal amount of spaces would simply be using the same number on padEnd or padStart
+// like this:
+// hello   T
+// testing T
+// t       T
 console.log(message.padStart(message.length + 5, ".").padEnd(message.length + 5, "."))
 
 // real world use case: masking a credit card number
