@@ -40,3 +40,12 @@ console.log(announcement.replaceAll("door", "gate"))
 // we can achieve same thing with regex
 // we put them in slashes and use `g` for global, aka all occurrences
 console.log(announcement.replace(/door/g, "gate"))
+
+// includes other string operations like startsWith, endsWith, indexOf, lastIndexOf, etc.
+
+// split
+const [firstName, lastName] = "Alexander Törnvall".split(" ")
+console.log(firstName, lastName)
+
+// join
+const newName = ["Mr.", firstName, lastName].join(" ")
