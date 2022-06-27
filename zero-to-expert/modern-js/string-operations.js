@@ -97,4 +97,4 @@ function convertToCamelCase(str) {
     .join(" ")
 }
 
-console.log(convertToCamelCase("hello_world start_wIth_this TESTING_123T_tisleD"))
+console.log(convertToCamelCase("underscore_case first_name Some_Variable calculate_AGE delayed_departure"))
