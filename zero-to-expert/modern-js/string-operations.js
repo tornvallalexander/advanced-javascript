@@ -83,5 +83,18 @@ console.log(maskCreditCardNumber(creditCardNumber))
 const message2 = "Hello"
 console.log(message2.repeat(3))
 
-// reverse
-console.log(message2.reverse())
+
+// exercise
+function convertToCamelCase(str) {
+  return str
+    .split(" ")
+    .map(word => word
+      .toLowerCase()
+      .split("_")
+      .map((variableName, i) => i > 0 ? variableName
+        .replace(variableName[0], variableName[0].toUpperCase()) : variableName)
+      .join(""))
+    .join(" ")
+}
+
+console.log(convertToCamelCase("hello_world start_wIth_this TESTING_123T_tisleD"))
