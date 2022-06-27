@@ -48,4 +48,40 @@ const [firstName, lastName] = "Alexander Törnvall".split(" ")
 console.log(firstName, lastName)
 
 // join
-const newName = ["Mr.", firstName, lastName].join(" ")
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ")
+
+// function to capitalize all words in a string
+const capitalizeAllWords = (str) => {
+  return str
+    .split(" ")
+    .map(word => word
+      .replace(word[0], word[0]
+        .toUpperCase()))
+    .join(" ")
+}
+
+// padding
+// padStart() and padEnd() are used to add padding to the start and end of a string
+
+const message = "Go to gate 23!"
+console.log(message.padStart(message.length + 5, ".").padEnd(message.length + 5, "."))
+
+// real world use case: masking a credit card number
+const creditCardNumber = "4111111111111111"
+
+// function to mask credit card number
+const maskCreditCardNumber = (str) => {
+  const last = str.slice(-4)
+   return last.padStart(str.length - 4, "*")
+  // return str.replace(/.(?=.{4})/g, "*")
+}
+
+console.log(maskCreditCardNumber(creditCardNumber))
+
+// repeat
+// repeat() is used to repeat a string a number of times
+const message2 = "Hello"
+console.log(message2.repeat(3))
+
+// reverse
+console.log(message2.reverse())
