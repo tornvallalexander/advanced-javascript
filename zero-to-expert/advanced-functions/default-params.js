@@ -8,4 +8,4 @@ function add(a = 40, b = 50 * a) {
 }
 
 // we can also skip default arguments with undefined, if we need to go to other arguments
-console.log(add(undefined, 100));
+console.log(add(undefined, 100)); // 140
