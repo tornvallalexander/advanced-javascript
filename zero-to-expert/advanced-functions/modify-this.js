@@ -53,3 +53,13 @@ eurowingsBookFlight123(passenger1);
 // order of args is important
 // different than creating a function with default arguments since this returns a new
 // reusable function
+
+// exercise
+const addTax = (rate, price) => price + (price * rate);
+const addTaxToFlight = addTax.bind(null, 0.26);
+console.log(addTaxToFlight(20000));
+
+// higher order function for partial application
+const addTaxHof = (rate, callbackfn) => (price) => callbackfn(rate, price);
+const addFlightTax = addTaxHof(0.26, addTax);
+console.log(addFlightTax(2305));
