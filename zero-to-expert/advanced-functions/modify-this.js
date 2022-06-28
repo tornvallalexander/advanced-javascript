@@ -43,3 +43,13 @@ lufthansa.book.call(eurowings, ...[123, passenger2]); // same as apply but sprea
 // setting a function
 const eurowingsBook = lufthansa.book.bind(eurowings);
 eurowingsBook(123, passenger1);
+
+
+// partial application - creating a function that has some of the arguments already set
+const eurowingsBookFlight123 = lufthansa.book.bind(eurowings, 123);
+eurowingsBookFlight123(passenger1);
+// this can also be used not necessarily even with modifying this, but in the sole purpose
+// of creating a function that has some of the arguments already set
+// order of args is important
+// different than creating a function with default arguments since this returns a new
+// reusable function
