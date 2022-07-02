@@ -106,6 +106,8 @@ const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 Array.prototype.pipe = function(...fns) {
   return fns.reduce((acc, f) => f(acc), this);
 }
+// thought: when starting new projects/building something from the ground up,
+// we can probably define some of these global definitions to make life easier?
 
 // optimizing functional code with HOFs
 const filterGreaterThan = (n) => {
@@ -119,6 +121,10 @@ const convertCurrencies = (rate) => {
 const accumulate = (initial) => {
   return (arr) => arr.reduce((acc, curr) => acc + curr, initial)
 }
+
+// making a general HOF? --> getting pretty complicated but might be able to get around
+// with using this keyword somehow?
+const pipeFn = (fn) => (arr) => arr[fn]();
 
 const cleaned = pipe(
   filterGreaterThan(0),
