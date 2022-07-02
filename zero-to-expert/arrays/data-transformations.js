@@ -83,7 +83,9 @@ const max = (arr) => {
   return arr
     .reduce((acc, curr) => {
       return Math.max(acc, curr);
-    })
+    }, arr[0])
+  // best practice to always go with the first value as the initial value
+  // not always 0 since all values could be negative
 }
 console.log(max([1, 2, 3, 4, 5, 3, 4]));
 
