@@ -21,3 +21,17 @@ arr.concat(["f", "g"]); // ["a", "b", "c", "d", "e", "f", "g"]
 
 // Join
 arr.join("-"); // "a-b-c-d-e"
+
+// At - returns the element at the specified index
+arr.at(1); // "b"
+// pretty much the same as arr[1]
+
+// use case: getting the last element of an array
+// also nice when chaining methods
+arr.at(-1); // "e"
+// also works for strings
+"abc".at(-1); // "c"
+// vs traditional way:
+arr.slice(-1)[0]; // "e"
+arr[arr.length - 1]; // "e"
+arr[-1]
