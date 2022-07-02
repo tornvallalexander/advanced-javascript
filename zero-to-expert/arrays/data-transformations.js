@@ -13,3 +13,15 @@ const arr = [1, 2, 3, 4, 5];
 console.log(map(arr, (x) => {
   return x * 2
 }));
+
+// modifying array map function
+Array.__proto__.map = function(fn) {
+  const result = [];
+  for (const [index, value] of this.entries()) {
+    result.push(fn(value, index));
+  }
+  return result;
+}
+console.log(arr.map((x) => {
+  return x * 2
+}));
