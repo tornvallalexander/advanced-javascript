@@ -73,3 +73,28 @@ const capitalizeWords = (s) => {
     }, "")
 }
 console.log(capitalizeWords(sentence));
+
+// IMPORTANT: we can have different purposes for the accumulator variable in reduce
+// this is the question we should always ask when using reduce
+
+// what should the accumulator variable be used for?
+// - the max value after comparing the current value
+const max = (arr) => {
+  return arr
+    .reduce((acc, curr) => {
+      return Math.max(acc, curr);
+    })
+}
+console.log(max([1, 2, 3, 4, 5, 3, 4]));
+
+// WHENEVER WE SEE THIS PATTERN:
+const getMax = (arr) => {
+  let max;
+  arr.map((value) => {
+    if (!max || max < value) {
+      max = value;
+    }
+  })
+  return max;
+}
+// WE SHOULD ALWAYS USE REDUCE - it simplifies the code and keeps the code way cleaner
