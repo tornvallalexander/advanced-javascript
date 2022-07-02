@@ -18,3 +18,32 @@ movements.forEach((value, index, array) => {
   // console.log(array);
   // logMovement(value)
 })
+
+// forEach on maps and sets
+// Map
+const currencies = new Map([
+  ["USD", "United States Dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "British Pound"],
+  ["JPY", "Japanese Yen"],
+  ["CAD", "Canadian Dollar"],
+]);
+
+currencies.forEach((val, key) => {
+  console.log(`${key}: ${val}`);
+})
+
+// Set
+const currenciesUnique = new Set([
+  "USD",
+  "USD",
+  "EUR",
+  "EUR",
+  "GBP",
+  "JPY",
+  "CAD",
+]);
+currenciesUnique.forEach((val, _) => {
+  // sets don't have keys, so we use _ to ignore it
+  console.log(`${val}: ${val}`);
+})
