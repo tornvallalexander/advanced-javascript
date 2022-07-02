@@ -103,4 +103,6 @@ function convertToCamelCase(str) {
     .join(" ")
 }
 
+// we can make above function more readable by using a custom pipe function
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 console.log(convertToCamelCase("underscore_case first_name Some_Variable calculate_AGE delayed_departure"))
