@@ -101,9 +101,11 @@ const getMax = (arr) => {
 }
 // WE SHOULD ALWAYS USE REDUCE - it simplifies the code and keeps the code way cleaner
 
-// what we could essentially do is to make this part of the array object:
-// Array.prototype.pipe = ...
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+// what we could essentially do is to make this part of the array object:
+Array.prototype.pipe = function(...fns) {
+  return fns.reduce((acc, f) => f(acc), this);
+}
 
 // optimizing functional code with HOFs
 const filterGreaterThan = (n) => {
@@ -124,3 +126,10 @@ const cleaned = pipe(
   accumulate(0)
 )(movements)
 console.log(cleaned);
+
+const cleaned2 = movements.pipe(
+  filterGreaterThan(0),
+  convertCurrencies(1.1),
+  accumulate(0)
+)
+console.log(cleaned2);
