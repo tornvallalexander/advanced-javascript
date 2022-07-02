@@ -14,6 +14,23 @@ bookPassengers();
 bookPassengers();
 bookPassengers();
 
+// access variable via closure outside of function scope, without HOF
+let z;
+const x = () => {
+  let y = 0;
+  // heavy computation
+  y += 1;
+  z = () => {
+    console.log(y);
+  }
+}
+x();
+// if variables in question can not be found directly, JavaScript will look through
+// the closure environment before looking through the global environment
+// closures build on the idea that variables are bound to the environment in which they are created
+z();
+
+
 // exercise
 (() => {
   if (typeof window !== "undefined") {
