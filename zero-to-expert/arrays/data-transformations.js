@@ -25,3 +25,7 @@ Array.__proto__.map = function(fn) {
 console.log(arr.map((x) => {
   return x * 2
 }));
+
+// using map vs forEach
+// forEach is used to iterate over an array with side effects
+// map is used to iterate over an array and return a new array
