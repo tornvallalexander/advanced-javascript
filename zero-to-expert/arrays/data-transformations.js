@@ -15,7 +15,7 @@ console.log(map(arr, (x) => {
 }));
 
 // modifying array map function
-Array.__proto__.map = function(fn) {
+Array.prototype.map = function(fn) {
   const result = [];
   for (const [index, value] of this.entries()) {
     result.push(fn(value, index));
@@ -101,6 +101,8 @@ const getMax = (arr) => {
 }
 // WE SHOULD ALWAYS USE REDUCE - it simplifies the code and keeps the code way cleaner
 
+// what we could essentially do is to make this part of the array object:
+// Array.prototype.pipe = ...
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 
 const filterGreaterThanZero = (arr) => {
