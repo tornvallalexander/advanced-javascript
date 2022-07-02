@@ -32,3 +32,25 @@ console.log(flattened);
 // by default this goes one level deep, but we can specify a depth
 const flattened2 = nestedArr.flat(2);
 console.log(flattened2);
+
+// sort - modifies the original array
+// console.log(movements.sort()); // does not work for numbers, so it converts them to strings and sorts off of that
+
+// a and b are *any* values in the array
+// return < 0: a comes before b --> keep order
+// return > 0: b comes before a --> reverse/switch order
+movements.sort((a, b) => {
+  // ascending order, small to big
+  return a - b
+  /* or, writing it more explicitly:
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 0;
+  }
+  */
+})
+
+console.log(movements);
