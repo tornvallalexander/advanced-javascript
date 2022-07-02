@@ -105,22 +105,22 @@ const getMax = (arr) => {
 // Array.prototype.pipe = ...
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 
-const filterGreaterThanZero = (arr) => {
-  return arr.filter((value) => value > 0)
+// optimizing functional code with HOFs
+const filterGreaterThan = (n) => {
+  return (arr) => arr.filter((value) => value > n)
 }
 
-const eurToUsd = (arr) => {
-  const eurToUsdExchange = 1.1;
-  return arr.map((value) => value * eurToUsdExchange)
+const convertCurrencies = (rate) => {
+  return (arr) => arr.map((value) => value * rate)
 }
 
-const getAccountBalance = (arr) => {
-  return arr.reduce((acc, curr) => acc + curr, 0)
+const accumulate = (initial) => {
+  return (arr) => arr.reduce((acc, curr) => acc + curr, initial)
 }
 
 const cleaned = pipe(
-  filterGreaterThanZero,
-  eurToUsd,
-  getAccountBalance,
+  filterGreaterThan(0),
+  convertCurrencies(1.1),
+  accumulate(0)
 )(movements)
 console.log(cleaned);
