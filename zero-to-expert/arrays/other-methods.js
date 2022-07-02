@@ -23,3 +23,12 @@ const hasRequiredMovements = (arr) => {
 }
 
 console.log(hasRequiredMovements(movements));
+
+// flat
+const nestedArr = [[1, 2, 3], [4, 5, 6], [[7, 8], 9]];
+// with ES6, we can use the flat method to flatten the array
+const flattened = nestedArr.flat();
+console.log(flattened);
+// by default this goes one level deep, but we can specify a depth
+const flattened2 = nestedArr.flat(2);
+console.log(flattened2);
