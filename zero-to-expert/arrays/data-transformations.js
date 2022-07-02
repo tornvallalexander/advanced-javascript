@@ -52,6 +52,24 @@ const str = "Alexander";
 const addSpaceBetweenChar = (s) => {
   return s
     .split("")
-    .reduce((acc, curr) => acc += curr + " ", "")
+    .reduce((acc, curr) => acc + curr + " ", "")
 }
 console.log(addSpaceBetweenChar(str));
+
+const sentence = "Alexander is a great programmer";
+const capitalizeWords = (s) => {
+/*
+  return s
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.slice(1)
+    }).join(" ")
+*/
+  // with reduce, we are able to skip the join call
+  return s
+    .split(" ")
+    .reduce((acc, curr) => {
+      return acc + curr[0].toUpperCase() + curr.slice(1) + " "
+    }, "")
+}
+console.log(capitalizeWords(sentence));
