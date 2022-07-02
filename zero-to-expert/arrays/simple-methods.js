@@ -34,4 +34,3 @@ arr.at(-1); // "e"
 // vs traditional way:
 arr.slice(-1)[0]; // "e"
 arr[arr.length - 1]; // "e"
-arr[-1]
