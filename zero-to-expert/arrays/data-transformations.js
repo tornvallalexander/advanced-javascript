@@ -100,3 +100,25 @@ const getMax = (arr) => {
   return max;
 }
 // WE SHOULD ALWAYS USE REDUCE - it simplifies the code and keeps the code way cleaner
+
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+
+const filterGreaterThanZero = (arr) => {
+  return arr.filter((value) => value > 0)
+}
+
+const eurToUsd = (arr) => {
+  const eurToUsdExchange = 1.1;
+  return arr.map((value) => value * eurToUsdExchange)
+}
+
+const getAccountBalance = (arr) => {
+  return arr.reduce((acc, curr) => acc + curr, 0)
+}
+
+const cleaned = pipe(
+  filterGreaterThanZero,
+  eurToUsd,
+  getAccountBalance,
+)(movements)
+console.log(cleaned);
