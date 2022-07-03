@@ -57,3 +57,19 @@ const test2 = () => {
   console.log(data);
 }
 test2();
+
+const getCountryData2 = async (country) => {
+  const response = await fetch(`https://restcountries.com/v2/name/${country}`);
+  if (!response.ok) {
+    throw new Error("Couldn't find country");
+  }
+  const data = await response.json();
+  console.log(data)
+  return data[0];
+}
+
+const test3 = () => {
+  console.log(getCountryData2("sweden"));
+}
+
+test3();
