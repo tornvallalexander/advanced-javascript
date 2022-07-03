@@ -32,6 +32,8 @@ console.log(arr.map((x) => {
 
 // reduce
 // reduce() is used to reduce an array to a single value
+// --> boil down an array into a single value of any type:
+// number, string, boolean, array, object
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const balance = movements.reduce((acc, curr, i, arr) => {
