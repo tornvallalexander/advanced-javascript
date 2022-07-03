@@ -69,3 +69,68 @@ const capitalizeWords2 = (s) => {
 }
 
 console.log(capitalizeWords2(sentence));
+
+// exercise
+const dogs = [
+  {
+    weight: 22,
+    curFood: 250,
+    owners: ["Alice", "Bob"],
+  },
+  {
+    weight: 8,
+    curFood: 200,
+    owners: ["Matilda"],
+  },
+  {
+    weight: 13,
+    curFood: 275,
+    owners: ["Sarah", "John"],
+  },
+  {
+    weight: 32,
+    curFood: 340,
+    owners: ["Michael"],
+  },
+]
+
+const findDog = (arr, owner) => {
+  return arr
+    .find(dog => dog.owners.includes(owner))
+}
+
+const eatsInRange = (dog) => {
+  const {recommendedFood: rec} = dog;
+  const min = rec - rec * 0.1;
+  const max = rec + rec * 0.1;
+
+  return dog.curFood >= min && dog.curFood <= max;
+}
+
+const eatsExactly = (arr) => {
+  return arr
+    .some(dog => dog.curFood === dog.recommendedFood)
+}
+
+const groupFoodIntakeByOwner = (arr) => {
+  return arr
+    .reduce((owners, dog) => {
+      if (!eatsInRange(dog)) {
+        if (dog.curFood > dog.recommendedFood * 1.1) {
+          dog.owners.map(owner => owners["ownersEatTooMuch"].push(owner));
+        } else {
+          dog.owners.map(owner => owners["ownersEatTooLittle"].push(owner));
+        }
+      }
+      return owners;
+    }, {ownersEatTooMuch: [], ownersEatTooLittle: []})
+}
+
+dogs.forEach(dog => {
+  dog.recommendedFood = 1*(dog.weight ** 0.75 * 28).toFixed(0);
+})
+
+console.log(eatsInRange(findDog(dogs, "Sarah")));
+console.log(groupFoodIntakeByOwner(dogs));
+console.log(eatsExactly(dogs));
+console.log(dogs.filter(dog => eatsInRange(dog)));
