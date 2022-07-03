@@ -17,11 +17,16 @@ function getCountryData(country) {
   response.then(
     (res) => {
       console.log(res);
+      if (res.ok) {
+        throw new Error("Something went wrong");
+      }
     },
     (err) => {
-      console.log(err);
+      console.log(err.message);
     }
-  )
+  ).catch((err) => {
+    console.log(err.message);
+  });
 }
 
 getCountryData("sweden");
