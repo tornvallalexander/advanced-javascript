@@ -30,3 +30,22 @@ function getCountryData(country) {
 }
 
 getCountryData("sweden");
+
+const setter = (fn) => {
+  return (data) => fn(data);
+}
+
+async function getCountryDataAsync(country) {
+  const response = await fetch(`https://restcountries.com/v2/name/${country}`);
+  if (!response.ok) {
+    throw new Error("Something went wrong");
+  }
+  return await response.json();
+}
+
+const test = () => {
+  const setData = setter(console.log);
+  const something = setData(getCountryDataAsync("sweden"));
+}
+
+test();
