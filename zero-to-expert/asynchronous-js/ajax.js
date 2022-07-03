@@ -43,9 +43,17 @@ async function getCountryDataAsync(country) {
   return await response.json();
 }
 
-const test = () => {
-  const setData = setter(console.log);
-  const something = setData(getCountryDataAsync("sweden"));
+const runAsync = async (fn, run) => {
+  const data = await fn();
+  run(data);
 }
 
-test();
+const test2 = () => {
+  let data;
+  runAsync(() => getCountryDataAsync("sweden"), (res) => {
+    data = res;
+  });
+
+  console.log(data);
+}
+test2();
