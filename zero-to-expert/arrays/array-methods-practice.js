@@ -43,3 +43,29 @@ const totalDepositsAbove999 = accounts
   .reduce((count, curr) => curr > 999 ? ++count : count, 0);
 
 console.log(totalDepositsAbove999);
+
+// capitalize the first letter of each word in the sentence
+const sentence = "Alexander is a great programmer";
+const capitalizeWords = (s) => {
+  const excludedWords = ["a", "an", "the", "and", "but", "or", "for", "nor", "yet", "so"];
+  return s
+    .split(" ")
+    .map((word) => {
+      return excludedWords.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    })
+    .join(" ")
+}
+
+console.log(capitalizeWords(sentence));
+
+// skipping join usage
+const capitalizeWords2 = (s) => {
+  const excludedWords = ["a", "an", "the", "and", "but", "or", "for", "nor", "yet", "so"];
+  return s
+    .split(" ")
+    .reduce((acc, curr) => {
+      return excludedWords.includes(curr) ? acc + curr + " " : acc + curr[0].toUpperCase() + curr.slice(1) + " "
+    }, "")
+}
+
+console.log(capitalizeWords2(sentence));
