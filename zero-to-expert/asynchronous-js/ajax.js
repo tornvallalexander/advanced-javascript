@@ -73,3 +73,10 @@ const test3 = () => {
 }
 
 test3();
+
+// the way we consume promises with the async syntax is by using an IIFE:
+(async () => {
+  const data = await getCountryDataAsync("sweden");
+  // execute logic here
+  console.log(data);
+})()
