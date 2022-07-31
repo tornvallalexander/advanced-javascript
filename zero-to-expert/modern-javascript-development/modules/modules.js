@@ -7,3 +7,12 @@
  *
  * Interestingly, the code exported and imported are references, not copies. This is quite unique to ES6 modules.
  */
+
+import { addToCart, cart } from './shopping-cart';
+
+addToCart('milk', 2);
+addToCart('bread', 1);
+addToCart('eggs', 3);
+
+// proof that the imported 'cart' is a reference, and not a copy.
+console.log(cart);
