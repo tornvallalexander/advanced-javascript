@@ -1,4 +1,6 @@
 const compose = (...fns) => (val) => fns.reduce((acc, curr) => curr(acc), val)
+const pipe = (...fns) => (val) => fns.reverse().reduce((acc, curr) => curr(acc), val) // same as compose but in reverse,
+// right to left
 
 const limit = (n) => (arr) => arr?.slice?.(0, n);
 
