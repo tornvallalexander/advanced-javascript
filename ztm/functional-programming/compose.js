@@ -1,8 +1,20 @@
 const compose = (...fns) => (val) => fns.reduce((acc, curr) => curr(acc), val)
 
 const limit = (n) => (arr) => arr?.slice?.(0, n);
-const includes = (w, el) => (arr) => arr?.filter(item => item?.[el]?.includes?.(w));
-const max = (n, el) => (arr) => arr?.filter(item => item?.[el]?.split?.(" ")?.length <= n);
+
+const includes = (chars, element) => {
+  return (arr) => {
+    return arr?.filter(item => item?.[element]?.includes?.(chars));
+  }
+}
+
+const max = (maxNum, element) => {
+  return (arr) => {
+    return arr?.filter(item => {
+      return item?.[element]?.split?.(" ")?.length <= maxNum;
+    })
+  }
+}
 
 const filterPosts = compose(
   includes("voluptatem", "body"),
