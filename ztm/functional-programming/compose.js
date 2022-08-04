@@ -1,3 +1,7 @@
+// term: arity
+// arity is the number of arguments that a function takes, a common term in functional programming
+// the few number of parameters, the easier it is to use that program
+
 const compose = (...fns) => (val) => fns.reduce((acc, curr) => curr(acc), val)
 const pipe = (...fns) => (val) => fns.reverse().reduce((acc, curr) => curr(acc), val) // same as compose but in reverse,
 // right to left
