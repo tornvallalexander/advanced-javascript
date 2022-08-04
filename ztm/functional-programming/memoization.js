@@ -2,6 +2,12 @@ function addTo80(n) {
   return n + 80;
 }
 
+/**
+ * Memoization is essentially just keeping calculated function values in a cache, so that
+ * we can easily return next time if the same input is given.
+ * @param fn
+ * @returns {(function(*): (*))|*}
+ */
 function memoize(fn) {
   const cache = {};
   return (n) => {

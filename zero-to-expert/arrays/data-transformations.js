@@ -9,9 +9,21 @@ const map = (arr, fn) => {
   return result;
 }
 
+// map with reduce
+const mapWithReduce = (arr, fn) => {
+  return arr.reduce((acc, curr) => {
+    acc.push(fn(curr)); // note: we can't return directly since return value of push is the length of the array
+    return acc
+  }, []);
+}
+
 const arr = [1, 2, 3, 4, 5];
 console.log(map(arr, (x) => {
-  return x * 2
+  return x * 2;
+}));
+
+console.log(mapWithReduce(arr, (x) => {
+  return x * 2;
 }));
 
 // modifying array map function
