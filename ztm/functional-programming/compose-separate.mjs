@@ -75,4 +75,4 @@ const isEqual = () => {
   return equal
 }
 
-console.log(isEqual())
+console.log(isEqual()) // true
