@@ -11,12 +11,14 @@ const pipe = (...fns) => (val) => fns.reverse().reduce((acc, curr) => curr(acc),
 const memoize = (fn) => {
   const cache = new Map();
   return (...args) => {
+    console.log(cache);
     if (cache.has(args)) {
+      console.log("cache hit");
       return cache.get(args);
     }
+    console.log("cache miss");
     const result = fn(...args);
     cache.set(args, result);
-    console.log(cache.get(args));
     return result;
   }
 }
@@ -45,6 +47,21 @@ const filterPosts = memoizedCompose(
   limit(10),
 );
 
-const posts = await fetch("https://jsonplaceholder.typicode.com/posts");
-const filteredPosts = filterPosts(await posts.json());
-console.log(filteredPosts);
+const filterPosts2 = memoizedCompose(
+  includes(search, "body"),
+  max(5, "title"),
+  limit(10),
+);
+
+const filterPosts3 = memoizedCompose(
+  includes(search, "body"),
+  max(4, "title"),
+  limit(10),
+);
+
+const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+const posts = await res.json();
+
+console.log(filterPosts(posts));
+console.log(filterPosts2(posts));
+console.log(filterPosts3(posts));
