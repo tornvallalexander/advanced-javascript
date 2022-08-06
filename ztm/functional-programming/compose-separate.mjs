@@ -45,6 +45,13 @@ const filterPosts = compose(
   memoizedLimit(10),
 );
 
+// also works defining directly inline, which really does make sense
+const filterPosts1 = compose(
+  (arr) => arr?.filter?.(item => item?.body?.includes?.(search)),
+  (arr) => arr?.filter?.(item => item?.title?.split?.(" ")?.length <= 4),
+  (arr) => arr?.slice?.(0, 10),
+);
+
 const filterPosts2 = compose(
   memoizedIncludes(search, "body"),
   memoizedMax(5, "title"),
@@ -60,9 +67,10 @@ const filterPosts3 = compose(
 const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 const posts = await res.json();
 
-console.log(filterPosts(posts));
-console.log(filterPosts2(posts));
-console.log(filterPosts3(posts));
+// console.log(filterPosts(posts));
+console.log(filterPosts1(posts));
+// console.log(filterPosts2(posts));
+// console.log(filterPosts3(posts));
 
 // the above is not working due to the fact that the memoization functions depend on each other, since we are using compose.
 const isEqual = () => {
