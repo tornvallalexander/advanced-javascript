@@ -73,22 +73,28 @@ function Customer(name, active = true, cart = [], purchases = []) {
 }
 
 function getHistory(user) {
-  return {
-     history() {
-       return user.purchases
-     },
-    ...user,
-  };
+  return addMethod(
+    user,
+    'history',
+    () => user.purchases
+  );
 }
 
 function getUsername(user) {
+  return addMethod(
+    user,
+    'username',
+    () => user.name
+  );
+}
+
+function addMethod(user, name, fn) {
   return {
-    username() {
-      return user.name
-    },
+    [name]: fn,
     ...user,
   }
 }
 
 const alex = Customer('Alex');
 console.log(alex);
+console.log(alex.history());
